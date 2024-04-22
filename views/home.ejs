@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('./partials/head.ejs') %>
+        <title>Home</title>
+</head>
+
+<body>
+    <%- include('./partials/nav.ejs') %>
+    
+      
+    <div class="class1">
+        <div id="carouselExampleIndicators" class="carousel slide">
+            <div class="carousel-indicators">
+              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            </div>
+            <div class="carousel-inner">
+                <% blogs.forEach(blog => { %>
+                    <div class="carousel-item active">
+                    <img src="<%= blog.coverImageURL %>" class="d-block w-100 h-100">
+                    
+                    <div class="carousel-caption">
+                      <h1 class="homeBlogTitle"><%= blog.title %></h1>
+                      <p class="homeBlogBody"><%= blog.body.substring(0, 100) %>...</p>
+                      <a id="viewBlog" href="/blog/<%= blog._id %>">Read this blog</a>
+                    </div>
+                </div>
+                <% }) %>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
+          <div>
+            </div>
+    </div>
+    <div class="class2">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptas aspernatur accusamus at. Sequi voluptatibus quibusdam aspernatur maxime, dolores tempore sapiente eum nam eaque quos error magni nisi temporibus dolorem soluta?</div>
+    <div class="class3"></div>
+
+        <%- include('./partials/scripts.ejs') %>
+        <%- include('./partials/footer.ejs') %>
+</body>
+
+
+</html>
+

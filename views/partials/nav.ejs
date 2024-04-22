@@ -1,0 +1,65 @@
+<header>
+  <div class="navbar">
+    <div class="logo">
+      <a href="/">BlogByte</a>
+    </div>
+    <ul class="links">
+      <li><a href="/">Home</a></li>
+      <li><a href="/about">About</a></li>
+      <li><a href="/allblogs">Blogs</a></li>
+      <% if (locals.user) { %>
+        <li><a href="/blog/add-new">Add Blog</a></li>
+        <li>
+          <div class="dropdown">
+            <button class="dropbtn"><img src="<%= locals.user.profileImageUrl %>" width="25px" class="pfp" /> @ <%=
+                locals.user.userName %> <i class="fas fa-chevron-down arrow_icon"></i> </button>
+            <div class="dropdown-content">
+              <a href="/blog/myblog">My Blogs</a>
+              <a href="/user/logout" class="logout">Log out</a>
+            </div>
+          </div>
+        </li>
+
+        <% } else { %>
+    </ul>
+    <div class="action">
+      <a href="/user/signin" class="action_btn"><b>Get Started</b></a>
+    </div>
+
+    
+    
+    <% } %>
+
+
+
+      <div class="toggle_btn">
+        <i class="fa-solid fa-bars"></i>
+        <div class="dropdown_menu">
+          <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/about">About</a></li>
+          <li><a href="/allblogs">Blogs</a></li>
+          <% if (locals.user) { %>
+            <li><a href="/blog/add-new">Add Blog</a></li>
+            <li>
+              <div class="dropdown">
+                <button class="dropbtn"><img src="<%= locals.user.profileImageUrl %>" width="25px" /> @ <%= locals.user.userName %> <i class="fas fa-chevron-down arrow_icon"></i> </button>
+                <div class="dropdown-content">
+                  <a href="/blog/myblog">My Blogs</a>
+                  <a href="/user/logout" class="logout">Log out</a>
+                </div>
+              </div>
+            </li>
+
+            <% } else { %>
+              </ul>
+              <a href="/user/signin" class="action_btn"><b>Get Started</b></a>
+              <% } %>
+
+        </div>
+      </div>
+
+</header>
+
+
+

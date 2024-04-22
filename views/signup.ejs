@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include('./partials/head') %>
+    <title>Signup</title>
+  </head>
+  <body>
+    <%- include('./partials/nav') %>
+
+   <% if (locals.error) { %>
+      <div class="errorBox">
+        
+          <%= locals.error %>
+        
+      </div>
+      <% } %>
+
+    <div class="wrapper">
+      
+      
+      <div class="container main">
+        
+          <div class="row">
+              <div class="col-md-6 side-image">
+          
+                  
+                  <img class="signupPage" src="/public/css/signup.jpg" alt="">
+                  <div class="text">
+                      <p>Join the community of <i>- BlogByte</i></p>
+                  </div>
+                  
+              </div>
+              <div class="col-md-6 right">
+                  
+                  <div class="input-box">
+                     
+                     <header>Create account</header>
+                     
+                     <form action="/user/signup" method="post" enctype="multipart/form-data">
+                      <div class="input-field">
+                        <input type="text" class="input" id="fullName" name="fullName" aria-describedby="fullName" autocomplete="off">
+                        <label for="fullName">Full Name</label> 
+                    </div>
+                     <div class="input-field">
+                          <input type="text" class="input" name="email" aria-describedby="emailHelp"id="email" required="" autocomplete="off">
+                          <label for="email">Email</label> 
+                      </div> 
+                     <div class="input-field">
+                          <input type="password" name="password" class="input" id="password" required="">
+                          <label for="password">Password</label>
+                      </div> 
+
+                      <div class="input-field">
+                        <input type="text" name="userName" class="input" aria-describedby="userName" id="userName" required="">
+                        <label for="userName">User Name</label>
+                    </div> 
+
+                    <div class="input-field" id="profileImage">
+                      <input type="file" name="profileImage" class="input" aria-describedby="profileImage" id="profileImage" required="">
+                    
+                  </div> 
+                     <div class="input-field">
+                          
+                          <input type="submit" class="submit" value="Sign Up">
+                     </div> 
+                     <div class="signin">
+                      <span>Already have an account? <a href="/user/signin">Log in here</a></span>
+                     </div>
+                     </form>
+                  </div>  
+              </div>
+          </div>
+      </div>
+  </div>
+    <%- include('./partials/scripts') %>
+  </body>
+</html>

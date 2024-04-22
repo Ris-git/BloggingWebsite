@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include('./partials/head') %>
+    <title>Signin</title>
+  </head>
+  <body>
+    <%- include('./partials/nav') %>
+
+    <!-- <div class="container">
+      <form action="/user/signin" method="post">
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label"
+            >Email address</label
+          >
+
+          <input
+            type="email"
+            name="email"
+            class="form-control"
+            id="exampleInputEmail1"
+            aria-describedby="emailHelp"
+          />
+          <div id="emailHelp" class="form-text">
+            We'll never share your email with anyone else.
+          </div>
+        </div>
+       
+        <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label">Password</label>
+          <input
+            name="password"
+            type="password"
+            class="form-control"
+            id="exampleInputPassword1"
+          />
+        </div>
+        Don't have an account? <a href="/user/signup">Create New Account</a>
+        <br>
+        <br>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    </div> -->
+
+
+    
+
+
+    <div class="wrapper">
+     
+      
+      <div class="container main">
+        
+          <div class="row">
+            
+              <div class="col-md-6 side-image">
+                         
+                  <!-------------      image     ------------->
+                  
+                  <img class="signupPage" src="/public/css/signup.jpg" alt="">
+                  <div class="text">
+                      <p>Login to the community of <i>- BlogByte</i></p>
+                  </div>
+                  
+              </div>
+              <div class="col-md-6 right">
+                  
+                  <div class="input-box">
+                     
+                     <header>Login Now</header>
+                     <% if (locals.error) { %>
+                      <div class="errorBox">
+                        
+                          <%= locals.error %>
+                        
+                      </div>
+                      <% } %>
+                     <form action="/user/signin" method="post">
+                
+                     <div class="input-field">
+                          <input type="text" class="input" name="email" aria-describedby="emailHelp"id="email" required="" autocomplete="off">
+                          <label for="email">Email</label> 
+                      </div> 
+                     <div class="input-field">
+                          <input type="password" name="password" class="input" id="password" required="">
+                          <label for="password">Password</label>
+                      </div> 
+
+                     
+
+      
+                     <div class="input-field">
+                          
+                          <input type="submit" class="submit" value="Login">
+                     </div> 
+                     <div class="signin">
+                      <span>Don't have an account? <a href="/user/signup">Create New Account</a></span>
+                     </div>
+                     </form>
+                  </div>  
+              </div>
+          </div>
+      </div>
+  </div>
+
+    <%- include('./partials/scripts') %>
+  </body>
+</html>

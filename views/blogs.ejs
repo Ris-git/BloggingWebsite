@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('./partials/head.ejs') %>
+    <title>All Blogs</title>
+</head>
+<body>
+    <%- include('./partials/nav.ejs') %>
+    <li>
+      <div class="search">
+        <div class="text_and-icon">
+        <form action="/blog/search" method="post" id="searchform">
+        <input id="search" name="search" type="search" placeholder="Search here ...">
+        <i class="fa fa-search"></i></form>
+        </div>
+      </div>
+  </li>
+  <li>
+    <div class="category">
+      <form action="/blog/filter" method="post">
+        <select name="category" id="category">
+          <option value="Select Category">Select Category</option>
+          <option value="Technology">Technology</option>
+          <option value="Health">Health</option>
+          <option value="Science">Science</option>
+          <option value="Travel">Travel</option>
+          <option value="Food">Food</option>
+          <option value="Fashion">Fashion</option>
+          <option value="Sports">Sports</option>
+          <option value="Music">Music</option>
+          <option value="Movies">Movies</option>                
+          <option value="Books">Books</option>
+        </select> 
+        <button type="submit">Filter</button>
+      </form>
+      </div>
+  </li>
+        
+         
+
+          <div class="container py-5">
+            <h1 class="text-center">All Blogs</h1>
+            <div class="row row-cols-1 row-cols-md-3 g-4 py-5">
+              <% blogs.forEach(blog => { %>
+              <div class="col">
+                <div class="card">
+                  <img src="<%= blog.coverImageURL %>" class="card-img-top">
+
+                  <div class="card-body">
+                    <h5 class="card-title"><%= blog.title %></h5>
+                    <h6 class="card-text"><%= blog.category %></h6>
+
+                  </div>
+                  <div class="mb-5 d-flex justify-content-around">
+                    
+                    <a href="/blog/<%= blog._id %>" class="btn btn-primary">View</a>
+                </div>
+                </div>
+
+
+              </div>
+              <% }) %>
+          <% if (blogs.length === 0) { %>
+            <div class="container mt-3">
+                <h2>No Blogs </h2>
+            </div>
+        <% } %>
+            </div>
+            
+          </div>
+
+
+
+
+
+
+
+
+
+
+
+     
+    
+    
+    
+
+    <%- include('./partials/scripts.ejs') %>
+
+</body>
+</html>
